@@ -7,7 +7,7 @@ extern keymap_config_t keymap_config;
 #define BASE 0
 #define META 1
 #define SYMB 2
-#define GAME 3
+#define QWERTY 3
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
@@ -15,42 +15,42 @@ extern keymap_config_t keymap_config;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* BASE
+/* BASE (detected as JIS)
  * ,------------------------------------------------.   ,------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |  [   |   |  ]   |   Y  |   U  |   I  |   O  |   P  |  @   |
+ * | Tab  |   /  |   ,  |   .  |   F  |   Q  |  [   |   |  ]   |   M  |   R  |   D  |   Y  |   P  |  @   |
  * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
- * | Alt  |   A  |   S  |   D  |   F  |   G  |  (   |   |  )   |   H  |   J  |   K  |   L  |   ;  |  :   |
+ * | Ctrl |   A  |   O  |   E  |   I  |   U  |  (   |   |  )   |   G  |   T  |   K  |   S  |   N  |  :   |
  * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
- * | Sft  |   Z  |   X  |   C  |   V  |   B  |  {   |   |  }   |   N  |   M  |   ,  |   .  |   /  |\/Sft |
+ * | Sft  |   Z  |   X  |   C  |   V  |   W  |  {   |   |  }   |   B  |   H  |   J  |   L  |   ;  |¥/Sft |
  * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
- * | Ctrl | GUI  |  App |PrtSc |ESC/  |Space/|Tab/  |   |Back  |Enter/| Del  |PrtSc |=>GAME|=>SYMB|  \   |
- * |      |      |      |      |~SYMB |Cmd   |Shift |   |Space |~META |      |      |      |      |      |
+ * | Alt  | GUI  |  App |Esc/  | 英数 |Space/|Tab/  |   |Back  |Enter/| かな | Del  |=>QWER|=>SYMB|  _   |
+ * |      |      |      |~SYMB |      |Cmd   |Shift |   |Space |~META |      |      |      |      |      |
  * `------------------------------------------------'   `------------------------------------------------'
  */
 
 [BASE] = KEYMAP( \
-  KC_TAB,   KC_Q,    KC_W,   KC_E,    KC_R,             KC_T,          KC_RBRC,       KC_BSLS,    KC_Y,             KC_U,    KC_I,     KC_O,     KC_P,     KC_LBRC, \
-  KC_LALT,  KC_A,    KC_S,   KC_D,    KC_F,             KC_G,          S(KC_8),       S(KC_9),    KC_H,             KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT, \
-  KC_LSFT,  KC_Z,    KC_X,   KC_C,    KC_V,             KC_B,          S(KC_RBRC),    S(KC_BSLS), KC_N,             KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  SFT_T(KC_RO), \
-  KC_LCTRL, KC_LGUI, KC_APP, KC_PSCR, LT(SYMB, KC_ESC), GUI_T(KC_SPC), SFT_T(KC_TAB), KC_BSPC,    LT(META, KC_ENT), KC_DELT, KC_PSCR,  TG(GAME), TG(SYMB), KC_JYEN \
+  KC_TAB,   KC_SLSH, KC_COMM,KC_DOT,           KC_F,     KC_Q,          KC_RBRC,       KC_NUH,    KC_M,             KC_R,     KC_D,     KC_Y,     KC_P,     KC_LBRC, \
+  KC_LCTRL, KC_A,    KC_O,   KC_E,             KC_I,     KC_U,          S(KC_8),       S(KC_9),    KC_G,             KC_T,     KC_K,     KC_S,     KC_N,     KC_QUOT, \
+  KC_LSFT,  KC_Z,    KC_X,   KC_C,             KC_V,     KC_W,          S(KC_RBRC),    S(KC_BSLS), KC_B,             KC_H,     KC_J,     KC_L,     KC_SCLN,  SFT_T(KC_BSLS), \
+  KC_LALT, KC_LGUI, KC_APP, LT(SYMB, KC_ESC), KC_LANG2, GUI_T(KC_SPC), SFT_T(KC_TAB), KC_BSPC,    LT(META, KC_ENT), KC_LANG1, KC_DELT,  TG(QWERTY), TG(SYMB), KC_INT1 \
 ),
 
 /* META
  * ,------------------------------------------------.   ,------------------------------------------------.
  * |   1  |   2  |   3  |   4  |   5  |   6  |  [   |   |  ]   |   7  |   8  |   9  |   0  |   -  |  ^   |
  * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
- * | Alt  |  F1  |      |Muhen | Henk |      |  (   |   |  )   | Left | Down |  Up  |Right |      |      |
+ * | Alt  |  F1  |      |Muhen | Henk |      |  (   |   |  )   | Left | Down |  Up  |Right |      | PWR  |
  * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
  * | Sft  |  F2  |  F3  |  F4  |  F5  |  F6  |  {   |   |  }   |  F7  |  F8  |  F9  | F10  | F11  |\/Sft |
  * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
- * | Ctrl | GUI  |  App |PrtSc |ESC/  |Space/|Tab/  |   |Back  |Enter/| Del  |Reset |=>GAME|=>SYMB|  \   |
+ * | Ctrl | GUI  |  App |PrtSc |ESC/  |Space/|Tab/  |   |Back  |Enter/| Del  |Reset |=>QWER|=>SYMB|  \   |
  * |      |      |      |      |~SYMB |Ctrl  |Shift |   |Space |~META |      |      |      |      |      |
  * `------------------------------------------------'   `------------------------------------------------'
  */
 
 [META] = KEYMAP( \
   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    _______, _______, KC_7,    KC_8,    KC_9,  KC_0,    KC_MINS, KC_EQL, \
-  _______, KC_F1,   XXXXXXX, KC_MHEN, KC_HENK, XXXXXXX, _______, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX, \
+  _______, KC_F1,   XXXXXXX, KC_MHEN, KC_HENK, XXXXXXX, _______, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, LSFT(LCTL(KC_PWR)), \
   _______, KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, KC_F7,   KC_F8,   KC_F9, KC_F10,  KC_F11,  SFT_T(KC_RO), \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET, _______, _______, _______ \
 ),
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
  * | Sft  |      |      |      |      |      |  {   |   |  }   |      |      |   <  |   >  |   ?  |  \   |
  * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
- * | Ctrl | GUI  |  App |PrtSc |ESC/  |Space/|Tab/  |   |Back  |Enter/| Del  |PrtSc |=>GAME|=>SYMB|  \   |
+ * | Ctrl | GUI  |  App |PrtSc |ESC/  |Space/|Tab/  |   |Back  |Enter/| Del  |PrtSc |=>QWER|=>SYMB|  \   |
  * |      |      |      |      |~SYMB |Ctrl  |Shift |   |Space |~META |      |      |      |      |      |
  * `------------------------------------------------'   `------------------------------------------------'
  */
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,    _______,   _______,    _______ \
 ),
 
-/* GAME
+/* QWERTY
  * ,------------------------------------------------.   ,------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |  [   |   |  ]   |   Y  |   U  |   I  |   O  |   P  |  @   |
  * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
@@ -83,11 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
  * | Sft  |   Z  |   X  |   C  |   V  |   B  |  {   |   |  }   |   N  |   M  |   ,  |   .  |   /  |\/Sft |
  * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
- * | Ctrl | GUI  |  App |PrtSc | ESC  |Space |Tab   |   |Back  |Enter | Del  |PrtSc |=>GAME|=>SYMB|  \   |
+ * | Ctrl | GUI  |  App |PrtSc | ESC  |Space |Tab   |   |Back  |Enter | Del  |PrtSc |=>QWER|=>SYMB|  \   |
  * |      |      |      |      |      |      |      |   |Space |      |      |      |      |      |      |
  * `------------------------------------------------'   `------------------------------------------------'
  */
-[GAME] = KEYMAP( \
+[QWERTY] = KEYMAP( \
   KC_TAB,   KC_Q,    KC_W,   KC_E,    KC_R,   KC_T,   KC_RBRC,    KC_BSLS,    KC_Y,   KC_U,    KC_I,     KC_O,    KC_P,    KC_LBRC, \
   KC_LALT,  KC_A,    KC_S,   KC_D,    KC_F,   KC_G,   S(KC_8),    S(KC_9),    KC_H,   KC_J,    KC_K,     KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT,  KC_Z,    KC_X,   KC_C,    KC_V,   KC_B,   S(KC_RBRC), S(KC_BSLS), KC_N,   KC_M,    KC_COMM,  KC_DOT,  KC_SLSH, SFT_T(KC_RO), \
