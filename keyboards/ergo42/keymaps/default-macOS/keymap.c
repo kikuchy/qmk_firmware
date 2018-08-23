@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [BASE] = KEYMAP( \
-  KC_TAB,   KC_SLSH, KC_COMM,KC_DOT,           KC_F,     KC_Q,          KC_RBRC,       KC_NUH,    KC_M,             KC_R,     KC_D,     KC_Y,     KC_P,     KC_LBRC, \
+  KC_TAB,   KC_SLSH, KC_COMM,KC_DOT,           KC_F,     KC_Q,          KC_RBRC,       KC_NUHS,    KC_M,             KC_R,     KC_D,     KC_Y,     KC_P,     KC_LBRC, \
   KC_LCTRL, KC_A,    KC_O,   KC_E,             KC_I,     KC_U,          S(KC_8),       S(KC_9),    KC_G,             KC_T,     KC_K,     KC_S,     KC_N,     KC_QUOT, \
   KC_LSFT,  KC_Z,    KC_X,   KC_C,             KC_V,     KC_W,          S(KC_RBRC),    S(KC_BSLS), KC_B,             KC_H,     KC_J,     KC_L,     KC_SCLN,  SFT_T(KC_BSLS), \
   KC_LALT, KC_LGUI, KC_APP, LT(SYMB, KC_ESC), KC_LANG2, GUI_T(KC_SPC), SFT_T(KC_TAB), KC_BSPC,    LT(META, KC_ENT), KC_LANG1, KC_DELT,  TG(QWERTY), TG(SYMB), KC_INT1 \
